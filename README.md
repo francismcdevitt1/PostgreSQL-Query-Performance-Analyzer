@@ -2,7 +2,7 @@
 
 # Overview
 
-A RestAPI created with Python and FastAPI that manages SQL queries using EXPLAIN ANALYZE. 
+A RestAPI created with Python and FastAPI that manages SQL queries using EXPLAIN ANALYZE.
 The application executes relevant metrics like execution time, detects scan strategies, stores analysis history and generates optimization recommendations.
 
 ## Features
@@ -24,20 +24,14 @@ The application executes relevant metrics like execution time, detects scan stra
 - psycopg2
 - pgAdmin
 
-
 ## Configuration
 
 Create a `.env` file in the project root with the following variables:
-
 
 DB_HOST=localhost
 DB_NAME=analyzer
 DB_USER=postgres
 DB_PASSWORD=your_password
-
-
-
-
 
 ## Installation
 
@@ -57,9 +51,6 @@ uvicorn app:app --reload
 
 http://127.0.0.1:8000/docs
 
-
-
-
 ## Run
 
 1. Create a PostgreSQL database named analyzer.
@@ -76,24 +67,27 @@ sql/sample_data.sql
 
 uvicorn app:app --reload
 
-
-## Example Queries 
+## Example Queries
 
 # Uses an Index Scan
-SELECT *
+
+SELECT \*
 FROM employees
 WHERE department = 'Engineering';
 
 # Usually uses a Sequential Scan
-SELECT *
+
+SELECT \*
 FROM employees
 WHERE name = 'Alice';
 
 # Retrieve all employees
-SELECT *
+
+SELECT \*
 FROM employees;
 
 # Retrieve a specific employee by ID
-SELECT *
+
+SELECT \*
 FROM employees
 WHERE id = 1;
